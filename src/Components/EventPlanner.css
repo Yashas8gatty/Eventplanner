@@ -1,135 +1,475 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .event-planner-container {
-    max-width: 100vw;
-    height: auto;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #fee6f0 25%, transparent 25%) -50px 0,
-                linear-gradient(225deg, #fee6f0 25%, transparent 25%) -50px 0,
-                linear-gradient(315deg, #fee6f0 25%, transparent 25%),
-                linear-gradient(45deg, #fee6f0 25%, transparent 25%);
-    background-size: 100px 100px; /* Adjust the size based on the pattern */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fee6f0 25%, transparent 25%) -50px 0,
+              linear-gradient(225deg, #fee6f0 25%, transparent 25%) -50px 0,
+              linear-gradient(315deg, #fee6f0 25%, transparent 25%),
+              linear-gradient(45deg, #fee6f0 25%, transparent 25%);
+  background-size: 100px 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation */
+.main-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand h1 {
+  color: #f85199;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.nav-links button:hover {
+  background: #f85199;
+  color: white;
+}
+
+.nav-links button.active {
+  background: #f85199;
+  color: white;
+}
+
+/* Main content */
+.main-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Home view */
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: #f85199;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(248, 81, 153, 0.3);
+}
+
+.cta-button:hover {
+  background: #d32b74;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(248, 81, 153, 0.4);
+}
+
+/* Feature cards */
+.features-preview {
+  margin-bottom: 3rem;
+}
+
+.features-preview h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  color: #f85199;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Events grid */
+.upcoming-events-preview h2,
+.events-view h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.event-card,
+.event-card-preview {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover,
+.event-card-preview:hover {
+  transform: translateY(-5px);
+}
+
+.event-category {
+  background: #f85199;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.event-card h3,
+.event-card-preview h3 {
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-description {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.event-details {
+  margin-bottom: 1.5rem;
+}
+
+.event-details p {
+  color: #555;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.register-btn {
+  background: #f85199;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.register-btn:hover:not(:disabled) {
+  background: #d32b74;
+}
+
+.register-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* View headers */
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.create-event-btn {
+  background: #f85199;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.create-event-btn:hover {
+  background: #d32b74;
+}
+
+/* Forms */
+.event-form,
+.registration-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #f85199;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.submit-btn {
+  background: #f85199;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #d32b74;
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #5a6268;
+}
+
+/* Registration and schedule views */
+.event-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.event-info p {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.registrations-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.registration-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.registration-card h3 {
+  color: #f85199;
+  margin-bottom: 1rem;
+}
+
+.registration-details p {
+  color: #555;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* Empty states */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.no-events {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
   }
-  
-  header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
-  .description p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+
+  .main-content {
+    padding: 1rem;
   }
-  
-  .get-started-button {
-    background-color: #f85199;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .get-started-button:hover {
-    background-color: #d32b74;
-  }
-  
-  .features,
-  .testimonials,
-  .contact,.events_categories {
-    margin-top: 50px;
-  }
-  
-  .features h2,
-  .testimonials h2,
-  .contact h2 {
+
+  .hero-section h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
   }
-  
-  .features ul {
-    list-style-type: none;
-    padding: 0;
+
+  .hero-section p {
+    font-size: 1rem;
   }
-  
-  .features ul li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+
+  .feature-cards {
+    grid-template-columns: 1fr;
   }
-  
-  .testimonial {
-    margin-bottom: 20px;
+
+  .events-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .testimonial p {
-    font-style: italic;
+
+  .view-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
   }
-  
-  .testimonial .author {
-    font-weight: bold;
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
-  
-  .contact form {
-    display: flex;
+
+  .form-actions {
     flex-direction: column;
   }
-  
-  .contact input,
-  .contact textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+
+  .nav-brand h1 {
+    font-size: 1.5rem;
   }
-  
-  .contact textarea {
-    height: 150px;
+}
+
+@media (max-width: 480px) {
+  .main-nav {
+    padding: 0.5rem;
   }
-  
-  .submit-button {
-    background-color: #f85199;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #d32b74;
-  }
-  
-  footer {
-    margin-top: 50px;
+
+  .nav-links button {
+    padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
   }
-  
-  .events_categories h1{
-    background-color: gray;
-    text-align: center;
+
+  .hero-section {
+    padding: 2rem 0;
   }
-.events_categories{
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .feature-card,
+  .event-card,
+  .registration-card {
+    padding: 1rem;
+  }
+
+  .event-form,
+  .registration-form {
+    padding: 1rem;
+  }
 }
-.events_categories ul{
-    background-color: rgba(0,0,0,0.2);
-    width: 270px;
-    /* padding: 0 10px; */
-}
-  .events_categories ul h2{
-    background-color: #e46a9d;
-    text-align: center;
-    padding: 5px 10px;
-    color: white;
-  }
-  .events_categories ul li{
-    list-style-type: none;
-    font-size: 1.1rem;
-    line-height: 24px;
-  }
